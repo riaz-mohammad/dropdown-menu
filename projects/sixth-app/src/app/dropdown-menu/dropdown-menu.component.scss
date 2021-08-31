@@ -1,0 +1,62 @@
+:host{
+  width: 300px;
+  height: 350px;
+}
+
+app-option{
+  color: grey;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.438);
+  font-size: .8rem;
+}
+  
+
+app-option.selected{
+  color: white;
+  font-weight: bold;
+}
+
+
+app-option:first-child{
+  position: relative;
+  color: white;
+  background-color: black;
+  z-index: 100;
+  font-size: .9rem;
+  border-radius: 10px;
+  &::after{
+    content:'';
+    cursor: pointer;
+    position: absolute;
+    box-sizing: border-box;
+    border: 2px solid white;
+    border-top: transparent;
+    border-right: transparent;
+    transition: all 300ms ease;
+    top: 20px;
+    right: 30px;
+    width: 15px;
+    height: 15px;
+    transform: rotate(-45deg);
+    
+  }
+    
+  &.expansion::after{
+    transform: rotate(135deg);
+    top: 28px;
+  }
+
+  &.expansion {
+    border-radius: 0;
+  }
+
+  
+}  
+
+
+app-option:not(:first-child){
+  &:hover{
+    color: white;
+  }
+}
+  

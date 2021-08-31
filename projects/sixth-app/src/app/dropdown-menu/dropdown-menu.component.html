@@ -1,0 +1,16 @@
+<app-select>
+   <app-option (click)="expandSelection()" 
+     [class.expansion]="showFrameworks">
+      {{ selected$ | async }}
+   </app-option>
+     
+   
+   <ng-container *ngIf="showFrameworks">
+      <app-option *ngFor="let framework of frameworks"
+         (click)="onSelect(framework)" @dropDownAnimation 
+         [class.selected]="framework === selected$.value">
+          {{ framework }}
+      </app-option>
+   </ng-container>
+
+</app-select>
